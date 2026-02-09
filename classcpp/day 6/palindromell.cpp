@@ -36,3 +36,25 @@ bool palimdrome(Node* head){
     }
     return true;
 }
+Node* buildList(vector<int> v) {
+    if (v.empty()) return NULL;
+
+    Node* head = new Node(v[0]);
+    Node* curr = head;
+
+    for (int i = 1; i < v.size(); i++) {
+        curr->next = new Node(v[i]);
+        curr = curr->next;
+    }
+    return head;
+}
+
+int main() {
+    Node* head1 = buildList({1, 2, 3, 2, 1});
+    Node* head2 = buildList({1, 2, 3, 4});
+
+    cout << (palindrome(head1) ? "Palindrome\n" : "Not Palindrome\n");
+    cout << (palindrome(head2) ? "Palindrome\n" : "Not Palindrome\n");
+
+    return 0;
+}
