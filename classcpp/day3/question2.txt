@@ -1,0 +1,17 @@
+write a prog with one userdefine funion and the main function the userdefine function takes an interger modify the value by passing the refrence return back the value;
+#include <iostream>
+using namespace std;
+
+void modifyValue(int &num) {
+    num = num * 2 + 5;
+}
+
+int main() {
+    int value = 10;
+    cout << "Original value: " << value << endl;
+    
+    modifyValue(value);
+    cout << "Modified value: " << value << endl;
+    
+    return 0;
+}

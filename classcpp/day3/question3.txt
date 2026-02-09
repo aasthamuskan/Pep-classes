@@ -1,0 +1,34 @@
+u are asked to write a c++ prog that exploare how pointers behave when combined with different const placements , and  how theses combinations control acess to memory,
+in this prog you will declare integer variables with automatic (stack) storage and create multiple pointer variants using const in diffrent position ,must modify
+the value being pointed to
+the pointer itself (the adress it holds);
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare integer variables
+    int x = 10;
+    int y = 20;
+    
+    // 1. Pointer to const int (cannot modify value, can modify pointer)
+    const int* ptr1 = &x;
+    // *ptr1 = 15;  // Error: cannot modify
+    ptr1 = &y;     // OK: can change pointer
+    
+    // 2. Const pointer to int (can modify value, cannot modify pointer)
+    int* const ptr2 = &x;
+    *ptr2 = 15;    // OK: can modify value
+    // ptr2 = &y;  // Error: cannot change pointer
+    
+    // 3. Const pointer to const int (cannot modify either)
+    const int* const ptr3 = &x;
+    // *ptr3 = 15;  // Error: cannot modify value
+    // ptr3 = &y;   // Error: cannot change pointer
+    
+    cout << "x = " << x << ", y = " << y << endl;
+    cout << "*ptr1 = " << *ptr1 << endl;
+    cout << "*ptr2 = " << *ptr2 << endl;
+    cout << "*ptr3 = " << *ptr3 << endl;
+    
+    return 0;
+}

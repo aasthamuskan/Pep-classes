@@ -1,0 +1,8 @@
+//include //import diffrence
+// include is copy paste
+// every this is single file
+
+
+
+// importing is only the logic of it has two files
+// actual file not merge
